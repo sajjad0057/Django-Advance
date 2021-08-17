@@ -10,6 +10,12 @@
       </li>
     {% endfor %}
   </ul>
+  <hr>
+  <h2>books name :</h2>
+  {% for book in books %}
+  <p>{{ book.title }}</p>
+    
+  {% endfor %}
   {% else %}
     <p>There are no authors in of book.</p>
   {% endif %} 
