@@ -9,6 +9,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/',include('catalog.urls')),
-    path('', RedirectView.as_view(url='catalog/', permanent=True)),  # redirect application 'catalog/' url initialy 
+    path('', RedirectView.as_view(url='catalog/', permanent=True)),  # initialy  redirect application with 'catalog/' url 
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
