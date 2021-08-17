@@ -10,5 +10,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('catalog/',include('catalog.urls')),
     path('', RedirectView.as_view(url='catalog/', permanent=True)),  # initialy  redirect application with 'catalog/' url 
+    path('accounts/', include('django.contrib.auth.urls')),
 
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
