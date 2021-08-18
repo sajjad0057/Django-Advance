@@ -33,6 +33,7 @@
             </li>
             {% else %}
             <li><a href="{% url 'session:login'%}?next={{request.path}}">Login</a></li>
+            <li><a href="{% url 'session:signup'%}">sign up</a></li>
             {% endif %}
           </ul>
           {% endblock %}

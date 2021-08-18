@@ -3,6 +3,7 @@ from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.models import User
+from .forms import signUpForm
 
 # Create your views here.
 
@@ -33,5 +34,24 @@ def login_user(request):
 def user_logout(request):
     logout(request)
     return HttpResponse('you are logout successfully !')
+
+
+
+def registration(request):
+    if request.method == "POST":
+        form = signUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('session:login')
+        else:
+            return HttpResponse("form is not valid")
+
+    else:
+        form = signUpForm()
+
+    return render(request,'session/signup.html',{'form':form})
+    
+
+
 
 
