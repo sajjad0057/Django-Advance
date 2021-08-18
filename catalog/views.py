@@ -76,7 +76,7 @@ class BookDetailView(LoginRequiredMixin,generic.DetailView):
 
 
 
-class AuthorListView(generic.ListView):
+class AuthorListView(LoginRequiredMixin,generic.ListView):
     model = Author
     context_object_name = 'author_list'
     template_name = 'author_list.html'

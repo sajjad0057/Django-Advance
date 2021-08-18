@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #apps
-    'catalog.apps.CatalogConfig'
+    'catalog.apps.CatalogConfig',
+    'session.apps.SessionConfig',
     
 ]
 
