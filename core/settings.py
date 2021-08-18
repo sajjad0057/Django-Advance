@@ -137,7 +137,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_URL = '/session/login/'
 
 # login redirect url 
 LOGIN_REDIRECT_URL = '/'
@@ -152,6 +152,6 @@ EMAIL_HOST_USER = 'sajjadice007@gmail.com'
 EMAIL_HOST_PASSWORD = '-----gmail password -----'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'OTF Team <sajjadice007@gmail.com>'
+DEFAULT_FROM_EMAIL = 'SAJ-DEV Team <sajjadice007@gmail.com>'
 
 

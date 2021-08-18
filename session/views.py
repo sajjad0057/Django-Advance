@@ -56,7 +56,7 @@ def registration(request):
             email = EmailMessage(mail_subject,message,to=[send_mail])
             email.send()
             # notification 
-            return redirect('session:login')
+            return redirect('login')
         else:
             return HttpResponse("form is not valid")
 
