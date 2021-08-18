@@ -29,3 +29,9 @@ def login_user(request):
     return render(request,'session/login.html',{'form':form})
 
 
+
+def user_logout(request):
+    logout(request)
+    return HttpResponse('you are logout successfully !')
+
+
