@@ -5,6 +5,13 @@ from django.contrib.auth import authenticate,login,logout,update_session_auth_ha
 from django.contrib.auth.models import User
 from .forms import signUpForm
 
+
+# for mail varification :
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail import EmailMessage, message
+from django.template.loader import render_to_string
+
+
 # Create your views here.
 
 
@@ -41,7 +48,14 @@ def registration(request):
     if request.method == "POST":
         form = signUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
+            current_site = get_current_site(request)  # domain name of requested site 
+            mail_subject = 'An account Created'
+            message = render_to_string('session/account.html',{'user':user,'domain':current_site.domain})  # convert html to string 
+            send_mail = form.cleaned_data.get('email')
+            email = EmailMessage(mail_subject,message,to=[send_mail])
+            email.send()
+            # notification 
             return redirect('session:login')
         else:
             return HttpResponse("form is not valid")
