@@ -1,10 +1,10 @@
 {% autoescape off %} 
 
 Hi ... 
-<h3><i>{{ user.username }}</i></h3>
-You have successfully created an account on : 
-http://{{ domain }}
+{{ user.username }}
+Please click on the link to confrim your registrions 
+http://{{ domain }}{% url 'activate_ac' uidb64=uid token=token %} 
 
-<i>if you are not creation this account , just ignore this mail. thank you</i>
+if you are not creation this account , just ignore this mail. thank you
   
 {% endautoescape %}

@@ -13,6 +13,7 @@ urlpatterns = [
     path('logout/',views.user_logout,name='logout'),
     path('sign-up/',views.registration,name='signup'),
     path('password_change/',views.change_pass,name='change_password'),
+    path('activate/<uidb64>/<token>/',views.activate_user_account,name='activate_ac'),
 
     # for built in  password  reset view 
 
