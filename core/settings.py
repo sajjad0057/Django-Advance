@@ -42,6 +42,9 @@ INSTALLED_APPS = [
     'catalog.apps.CatalogConfig',
     'session.apps.SessionConfig',
     'location.apps.LocationConfig',
+    'articles.apps.ArticlesConfig',
+
+
     
 ]
 
@@ -53,6 +56,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Custom middleware 
+
+    'articles.middlewares.simple_middleware',
+    
 ]
 
 
@@ -71,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                #using custom context_proccessor we can access our context globally any template
                 'catalog.context_processors.return_book',
             ],
         },

@@ -10,6 +10,8 @@ from catalog import models
 def index(request):
     """View function for home page of site."""
 
+    print('test middleware ---> this is execute from index view ')
+
     # Generate counts of some of the main objects
     num_books = Book.objects.all().count()
     num_instances = BookInstance.objects.all().count()
