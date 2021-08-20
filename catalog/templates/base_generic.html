@@ -36,6 +36,7 @@
             <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
             <li><a href="{% url 'signup'%}">sign up</a></li>
             {% endif %}
+            <li><a href="{% url 'location:user-location' %}"> user location</a></li>
           </ul>
           {% endblock %}
         </div>

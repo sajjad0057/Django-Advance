@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     #apps
     'catalog.apps.CatalogConfig',
     'session.apps.SessionConfig',
+    'location.apps.LocationConfig',
     
 ]
 
