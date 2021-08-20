@@ -5,16 +5,23 @@
 '''
 # middleware function name : 
 
+from django.shortcuts import redirect
+
+
 def simple_middleware(get_response):
     # One-time configuration and initialization.
 
-    print('this is example_middleware for testing ')
+    print('this is simple_middleware for testing ')
 
     #inner function name : 
     def middleware(request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
         print("articles middleware ---->  this is before view ")
+        path = request.path
+        # set /sajjad or /nafiul or /ariful after host url , when this middle are redirect location url .
+        if path in ['/sajjad','/nafiul','/arif']:  
+            return redirect('location:user-location');
         response = get_response(request)
         print("articles middleware ---->  this is after view ")
 
