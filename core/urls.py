@@ -11,6 +11,7 @@ urlpatterns = [
     path('catalog/',include('catalog.urls')),
     path('session/',include('session.urls')),
     path('location/',include('location.urls')),
+    path('article/',include('articles.urls')),
     path('', RedirectView.as_view(url='catalog/', permanent=True)),  # initialy  redirect application with 'catalog/' url 
     # path('accounts/', include('django.contrib.auth.urls')),
 

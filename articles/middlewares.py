@@ -4,7 +4,7 @@
 
 '''
 # middleware function name : 
-from django.http import response
+from django.shortcuts import HttpResponse
 from django.shortcuts import redirect
 
 
@@ -61,3 +61,9 @@ class SimpleMiddleware:
         # the view is called.
 
         return response
+
+    def process_exception(self, request, exception):
+        return HttpResponse(exception)
+
+
+    
