@@ -4,30 +4,60 @@
 
 '''
 # middleware function name : 
-
+from django.http import response
 from django.shortcuts import redirect
 
 
-def simple_middleware(get_response):
-    # One-time configuration and initialization.
+# functional middleware : 
 
-    print('this is simple_middleware for testing ')
+# def simple_middleware(get_response):
+#     # One-time configuration and initialization.
 
-    #inner function name : 
-    def middleware(request):
+#     print('this is simple_middleware for testing ')
+
+#     #inner function name : 
+#     def middleware(request):
+#         # Code to be executed for each request before
+#         # the view (and later middleware) are called.
+#         print("articles function based middleware ---->  this is before view ")
+#         path = request.path
+#         # set /sajjad or /nafiul or /ariful after host url , when this middle are redirect location url .
+#         if path in ['/sajjad','/nafiul','/arif']:  
+#             return redirect('location:user-location');
+#         response = get_response(request)
+#         print("articles function based middleware ---->  this is after view ")
+
+#         # Code to be executed for each request/response after
+#         # the view is called.
+
+#         return response
+
+#     return middleware
+
+
+
+
+
+# Class Based Middleware : 
+
+class SimpleMiddleware:
+    def __init__(self, get_response):
+        self.get_response = get_response
+        # One-time configuration and initialization.
+        print('this is simple_middleware for testing ')
+
+    def __call__(self, request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
-        print("articles middleware ---->  this is before view ")
+        print("articles class based middleware ---->  this is before view ")
         path = request.path
         # set /sajjad or /nafiul or /ariful after host url , when this middle are redirect location url .
         if path in ['/sajjad','/nafiul','/arif']:  
             return redirect('location:user-location');
-        response = get_response(request)
-        print("articles middleware ---->  this is after view ")
+        response = self.get_response(request)
+        print("articles class based middleware ---->  this is after view ")
 
         # Code to be executed for each request/response after
         # the view is called.
 
         return response
-
-    return middleware

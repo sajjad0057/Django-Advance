@@ -59,7 +59,8 @@ MIDDLEWARE = [
 
     # Custom middleware 
 
-    'articles.middlewares.simple_middleware',
+    # 'articles.middlewares.simple_middleware',
+    'articles.middlewares.SimpleMiddleware',
     
 ]
 
